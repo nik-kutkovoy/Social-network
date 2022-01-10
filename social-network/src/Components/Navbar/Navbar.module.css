@@ -1,0 +1,31 @@
+.navbar {
+  grid-area: n;
+  background-color: #4687ce;
+}
+
+.navbar ul {
+  list-style-type: none;
+}
+
+.navbar_ul li {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.navbar_ul li:last-child {
+  margin-top: 40px;
+}
+
+.navbar_ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar_ul li a:hover {
+  text-decoration: none;
+  color: #61dbfb;
+}
+
+.navbar_ul li a.active {
+  color: whitesmoke;
+}

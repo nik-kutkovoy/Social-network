@@ -1,0 +1,27 @@
+.postsBlock {
+  padding: 10px;
+}
+
+.postsBlock button {
+  background-color: #e74c3c;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid black;
+  color: white;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.postsBlock button:hover {
+  background-color: #9e2619;
+}
+
+.postsBlock button img {
+  margin-left: 10px;
+}
+
+.postsBlock .header {
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}

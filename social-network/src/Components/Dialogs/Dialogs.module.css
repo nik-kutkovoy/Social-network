@@ -1,0 +1,48 @@
+.header {
+  font-size: 30px;
+  padding: 15px;
+}
+
+.vl {
+  border-left: 4px solid cornflowerblue;
+  height: auto;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr 9fr;
+}
+
+.dialog ul li {
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+.dialog ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.dialog ul li a:hover {
+  text-decoration: none;
+  color: #26a69a;
+}
+
+.dialog ul li a.active {
+  color: #e74c3c;
+}
+
+.messages ul li {
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+.dialog_Item img {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.dialog_Item span {
+  color: #0071e3;
+}

@@ -8,34 +8,51 @@ import Dialogs from "./Components/Dialogs/Dialogs";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
+import { updateTextAreaText } from "./Redux/state";
 
 function App(props) {
   return (
-    <BrowserRouter>
-      <div className="app-wrapper">
-        <Header />
-        <Navbar state={props.state.sidebar} />
-        <div className="app-wrapper-content">
-          <Routes>
-            <Route
-              path="/header"
-              element={<Profile state={props.state.profilePage} />}
-            />
-            <Route
-              path="/profile"
-              element={<Profile state={props.state.profilePage} />}
-            />
-            <Route
-              path="/dialogs/*"
-              element={<Dialogs state={props.state.dialogsPage} />}
-            />
-            <Route path="/news" element={<News />} />
-            <Route path="/music" element={<Music />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
-        </div>
+    <div className="app-wrapper">
+      <Header />
+      <Navbar state={props.state.sidebar} />
+      <div className="app-wrapper-content">
+        <Routes>
+          <Route
+            path="/header"
+            element={
+              <Profile
+                profilePage={props.state.profilePage}
+                addPost={props.addPost}
+                updatePostText={props.updatePostText}
+              />
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <Profile
+                profilePage={props.state.profilePage}
+                addPost={props.addPost}
+                updatePostText={props.updatePostText}
+              />
+            }
+          />
+          <Route
+            path="/dialogs/*"
+            element={
+              <Dialogs
+                state={props.state.dialogsPage}
+                updatePostText={props.updatePostText}
+                updateTextAreaText={props.updateTextAreaText}
+              />
+            }
+          />
+          <Route path="/news" element={<News />} />
+          <Route path="/music" element={<Music />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
       </div>
-    </BrowserRouter>
+    </div>
   );
 }
 

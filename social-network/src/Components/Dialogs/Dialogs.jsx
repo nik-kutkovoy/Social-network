@@ -8,7 +8,15 @@ const Dialogs = (props) => {
   });
 
   let messageElements = props.state.messages.map((el) => {
-    return <Message message={el.message} name={el.name} />;
+    return (
+      <Message
+        message={el.message}
+        name={el.name}
+        updatePostText={props.updatePostText}
+        newPostText={props.state.newPostText}
+        updateTextAreaText={props.updateTextAreaText}
+      />
+    );
   });
 
   return (

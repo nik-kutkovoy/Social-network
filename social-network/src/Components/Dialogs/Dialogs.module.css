@@ -46,3 +46,21 @@
 .dialog_Item span {
   color: #0071e3;
 }
+
+.messages button {
+  background-color: #e74c3c;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid black;
+  color: white;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.messages button:hover {
+  background-color: #9e2619;
+}
+
+.messages button img {
+  margin-left: 10px;
+}

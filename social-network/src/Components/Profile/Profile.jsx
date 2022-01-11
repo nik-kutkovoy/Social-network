@@ -1,4 +1,3 @@
-import state from "../../Redux/state";
 import MyPosts from "./MyPosts/MyPosts";
 import s from "./Profile.module.css";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
@@ -9,8 +8,7 @@ const Profile = (props) => {
       <ProfileInfo text="Ava + description" />
       <MyPosts
         posts={props.profilePage.posts}
-        addPost={props.addPost}
-        updatePostText={props.updatePostText}
+        dispatch={props.dispatch}
         newPostText={props.profilePage.newPostText}
       />
     </div>

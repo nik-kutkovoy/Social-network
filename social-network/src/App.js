@@ -8,7 +8,6 @@ import Dialogs from "./Components/Dialogs/Dialogs";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
-import { updateTextAreaText } from "./Redux/state";
 
 function App(props) {
   return (
@@ -21,9 +20,8 @@ function App(props) {
             path="/header"
             element={
               <Profile
+                dispatch={props.dispatch}
                 profilePage={props.state.profilePage}
-                addPost={props.addPost}
-                updatePostText={props.updatePostText}
               />
             }
           />
@@ -31,9 +29,8 @@ function App(props) {
             path="/profile"
             element={
               <Profile
+                dispatch={props.dispatch}
                 profilePage={props.state.profilePage}
-                addPost={props.addPost}
-                updatePostText={props.updatePostText}
               />
             }
           />
@@ -42,8 +39,7 @@ function App(props) {
             element={
               <Dialogs
                 state={props.state.dialogsPage}
-                updatePostText={props.updatePostText}
-                updateTextAreaText={props.updateTextAreaText}
+                dispatch={props.dispatch}
               />
             }
           />

@@ -1,6 +1,8 @@
+import { sendMessageBody, updateNewMessageBody } from "../../Redux/state";
 import DialogItem from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
+import react from "react";
 
 const Dialogs = (props) => {
   let dialogElements = props.state.dialogs.map((el) => {
@@ -8,16 +10,19 @@ const Dialogs = (props) => {
   });
 
   let messageElements = props.state.messages.map((el) => {
-    return (
-      <Message
-        message={el.message}
-        name={el.name}
-        updatePostText={props.updatePostText}
-        newPostText={props.state.newPostText}
-        updateTextAreaText={props.updateTextAreaText}
-      />
-    );
+    return <Message message={el.message} />;
   });
+
+  let newMessage = react.createRef();
+
+  let updateTextarea = () => {
+    let text = newMessage.current.value;
+    props.dispatch(updateNewMessageBody(text));
+  };
+
+  let sendMessage = () => {
+    props.dispatch(sendMessageBody());
+  };
 
   return (
     <div className={s.dialogs}>
@@ -29,6 +34,18 @@ const Dialogs = (props) => {
         <div className={s.vl}></div>
         <div className={s.messages}>
           <ul>{messageElements}</ul>
+          <textarea
+            ref={newMessage}
+            placeholder="Write new message..."
+            value={props.state.newMessageBody}
+            onChange={updateTextarea}
+          ></textarea>
+          <div>
+            <button onClick={sendMessage}>
+              Send
+              <img src="https://img.icons8.com/glyph-neue/14/000000/checkmark.png" />
+            </button>
+          </div>
         </div>
       </div>
     </div>

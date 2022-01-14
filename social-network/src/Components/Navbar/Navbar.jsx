@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import s from "./Navbar.module.css";
-import Sidebar from "./Sidebar/Sidebar";
+import React from "react";
+import SidebarContainer from "./Sidebar/SidebarContainer";
 
 const Navbar = (props) => {
   return (
@@ -47,7 +48,7 @@ const Navbar = (props) => {
           </NavLink>
         </li>
       </ul>
-      <Sidebar sidebar={props.state} />
+      <SidebarContainer store={props.store} />
     </div>
   );
 };

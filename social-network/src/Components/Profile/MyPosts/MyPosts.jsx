@@ -1,35 +1,29 @@
-import react from "react";
-import {
-  addNewPostActionCreator,
-  updatePostTextActionCreator,
-} from "../../../Redux/state";
+import React from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-  let postElements = props.posts.map((el) => {
+  let postElements = props.profilePage.posts.map((el) => {
     return <Post likesCount={el.likesCount} message={el.message} />;
   });
 
-  let newPostElement = react.createRef();
-
   let addPost = () => {
-    props.dispatch(addNewPostActionCreator());
+    props.addPost();
   };
 
-  let onPostChange = () => {
-    let text = newPostElement.current.value;
-    props.dispatch(updatePostTextActionCreator(text));
+  let onPostChange = (event) => {
+    let text = event.target.value;
+    props.onPostChange(text);
   };
 
   return (
     <div className={s.postsBlock}>
       <div className={s.header}>My Posts</div>
+      {postElements}
       <textarea
-        ref={newPostElement}
         onChange={onPostChange}
-        value={props.newPostText}
-        placeholder="Write new message..."
+        value={props.profilePage.newPostText}
+        placeholder={props.profilePage.placeholderPostText}
       ></textarea>
       <div>
         <button onClick={addPost}>
@@ -37,7 +31,6 @@ const MyPosts = (props) => {
           <img src="https://img.icons8.com/glyph-neue/14/000000/checkmark.png" />
         </button>
       </div>
-      {postElements}
     </div>
   );
 };
